@@ -1158,6 +1158,7 @@ static int imx708_set_ctrl(struct v4l2_ctrl *ctrl)
 		ret = imx708_set_frame_length(imx708,
 					      imx708->mode->height + ctrl->val);
 		break;
+	/* Disabled
 	case V4L2_CID_NOTIFY_GAINS:
 		ret = imx708_write_reg(imx708, IMX708_REG_COLOUR_BALANCE_BLUE,
 				       IMX708_REG_VALUE_16BIT,
@@ -1168,6 +1169,7 @@ static int imx708_set_ctrl(struct v4l2_ctrl *ctrl)
 				       IMX708_REG_VALUE_16BIT,
 				       imx708->notify_gains->p_new.p_u32[3]);
 		break;
+	*/
 	case V4L2_CID_WIDE_DYNAMIC_RANGE:
 		code = imx708_get_format_code(imx708);
 		get_mode_table(code, &mode_list, &num_modes, ctrl->val);
@@ -1702,6 +1704,7 @@ static const struct v4l2_subdev_internal_ops imx708_internal_ops = {
 	.open = imx708_open,
 };
 
+/* Disabled
 static const struct v4l2_ctrl_config imx708_notify_gains_ctrl = {
 	.ops = &imx708_ctrl_ops,
 	.id = V4L2_CID_NOTIFY_GAINS,
@@ -1713,6 +1716,7 @@ static const struct v4l2_ctrl_config imx708_notify_gains_ctrl = {
 	.dims = { 4 },
 	.elem_size = sizeof(u32),
 };
+*/
 
 /* Initialize control handlers */
 static int imx708_init_controls(struct imx708 *imx708)
@@ -1788,9 +1792,11 @@ static int imx708_init_controls(struct imx708 *imx708)
 		/* The "Solid color" pattern is white by default */
 	}
 
+	/* Disabled
 	imx708->notify_gains = v4l2_ctrl_new_custom(ctrl_hdlr,
 						    &imx708_notify_gains_ctrl, NULL);
 
+	*/
 	imx708->hdr_mode = v4l2_ctrl_new_std(ctrl_hdlr, &imx708_ctrl_ops,
 					     V4L2_CID_WIDE_DYNAMIC_RANGE,
 					     0, 1, 1, 0);
