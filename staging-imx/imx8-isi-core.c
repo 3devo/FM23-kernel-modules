@@ -863,11 +863,11 @@ static const struct dev_pm_ops mxc_isi_pm_ops = {
 };
 
 static const struct of_device_id mxc_isi_of_match[] = {
-	{.compatible = "fsl,imx8-isi", .data = &mxc_imx8_data },
-	{.compatible = "fsl,imx8mn-isi", .data = &mxc_imx8mn_data },
-	{.compatible = "fsl,imx8mp-isi", .data = &mxc_imx8mp_data },
-	{.compatible = "fsl,imx8ulp-isi", .data = &mxc_imx8ulp_data },
-	{.compatible = "fsl,imx93-isi", .data = &mxc_imx8ulp_data },
+	{.compatible = "fsl,imx8-isi-modified", .data = &mxc_imx8_data },
+	{.compatible = "fsl,imx8mn-isi-modified", .data = &mxc_imx8mn_data },
+	{.compatible = "fsl,imx8mp-isi-modified", .data = &mxc_imx8mp_data },
+	{.compatible = "fsl,imx8ulp-isi-modified", .data = &mxc_imx8ulp_data },
+	{.compatible = "fsl,imx93-isi-modified", .data = &mxc_imx8ulp_data },
 	{ /* sentinel */ },
 };
 MODULE_DEVICE_TABLE(of, mxc_isi_of_match);

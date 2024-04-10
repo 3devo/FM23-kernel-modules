@@ -31,7 +31,7 @@
 
 #include "imx8-common.h"
 
-#define MXC_MD_DRIVER_NAME	"mxc-md"
+#define MXC_MD_DRIVER_NAME	"mxc-md-modified"
 #define ISI_OF_NODE_NAME	"isi"
 #define MIPI_CSI2_OF_NODE_NAME  "csi"
 
@@ -1154,7 +1154,7 @@ static int mxc_md_remove(struct platform_device *pdev)
 }
 
 static const struct of_device_id mxc_md_of_match[] = {
-	{ .compatible = "fsl,mxc-md",},
+	{ .compatible = "fsl,mxc-md-modified",},
 	{ /* sentinel */ },
 };
 MODULE_DEVICE_TABLE(of, mxc_md_of_match);

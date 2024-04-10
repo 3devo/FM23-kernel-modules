@@ -1333,7 +1333,7 @@ static int mxc_isi_cap_enum_framesizes(struct file *file, void *priv,
 		return ret;
 
 	parent = of_get_parent(isi_cap->pdev->dev.of_node);
-	if ((of_device_is_compatible(parent, "fsl,imx8mp-isi")) &&
+	if ((of_device_is_compatible(parent, "fsl,imx8mp-isi-modified")) &&
 	    (fse.max_width > ISI_2K || fse.min_width > ISI_2K) &&
 	    (isi_cap->id == 1))
 		return -EINVAL;
@@ -1386,7 +1386,7 @@ static int mxc_isi_cap_enum_frameintervals(struct file *file, void *fh,
 		return ret;
 
 	parent = of_get_parent(isi_cap->pdev->dev.of_node);
-	if (of_device_is_compatible(parent, "fsl,imx8mp-isi") &&
+	if (of_device_is_compatible(parent, "fsl,imx8mp-isi-modified") &&
 	    fie.width > ISI_2K && isi_cap->id == 1)
 		return -EINVAL;
 
@@ -1568,7 +1568,7 @@ static int mxc_isi_subdev_set_fmt(struct v4l2_subdev *sd,
 	}
 
 	parent = of_get_parent(isi_cap->pdev->dev.of_node);
-	if (of_device_is_compatible(parent, "fsl,imx8mn-isi") &&
+	if (of_device_is_compatible(parent, "fsl,imx8mn-isi-modified") &&
 	    mf->width > ISI_2K)
 		return -EINVAL;
 
@@ -1888,7 +1888,7 @@ static int isi_cap_remove(struct platform_device *pdev)
 }
 
 static const struct of_device_id isi_cap_of_match[] = {
-	{.compatible = "imx-isi-capture",},
+	{.compatible = "imx-isi-capture-modified",},
 	{ /* sentinel */ },
 };
 MODULE_DEVICE_TABLE(of, isi_cap_of_match);
@@ -1898,7 +1898,7 @@ static struct platform_driver isi_cap_driver = {
 	.remove = isi_cap_remove,
 	.driver = {
 		.of_match_table = isi_cap_of_match,
-		.name		= "isi-capture",
+		.name		= "isi-capture-modified",
 	},
 };
 module_platform_driver(isi_cap_driver);

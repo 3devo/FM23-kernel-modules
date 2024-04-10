@@ -1403,7 +1403,7 @@ static struct platform_driver isi_m2m_driver = {
 	.remove = isi_m2m_remove,
 	.driver = {
 		.of_match_table = isi_m2m_of_match,
-		.name		= "isi-m2m",
+		.name		= "isi-m2m-modified",
 	},
 };
 
