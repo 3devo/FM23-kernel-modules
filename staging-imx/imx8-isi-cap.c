@@ -1491,7 +1491,7 @@ static int mxc_isi_subdev_enum_mbus_code(struct v4l2_subdev *sd,
 					 struct v4l2_subdev_state *sd_state,
 					 struct v4l2_subdev_mbus_code_enum *code)
 {
-	return 0;
+	return -EINVAL;
 }
 
 static int mxc_isi_subdev_get_fmt(struct v4l2_subdev *sd,
