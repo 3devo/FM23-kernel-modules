@@ -54,6 +54,13 @@ struct mxc_isi_fmt mxc_isi_src_formats[] = {
 		.memplanes	= 1,
 		.colplanes	= 1,
 		.align		= 2,
+	}, {
+		.name		= "SRGGB10",
+		.fourcc		= V4L2_PIX_FMT_SRGGB10,
+		.depth		= { 16 },
+		.memplanes	= 1,
+		.colplanes	= 1,
+		.align		= 2,
 	}
 };
 
