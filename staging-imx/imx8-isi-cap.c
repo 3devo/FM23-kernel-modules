@@ -1522,6 +1522,7 @@ static int mxc_isi_subdev_get_fmt(struct v4l2_subdev *sd,
 	case MXC_ISI_SD_PAD_SINK_DC0:
 	case MXC_ISI_SD_PAD_SINK_DC1:
 	case MXC_ISI_SD_PAD_SINK_MEM:
+	case MXC_ISI_SD_PAD_SINK_PARALLEL_CSI:
 		f = &isi_cap->src_f;
 		break;
 	default:
