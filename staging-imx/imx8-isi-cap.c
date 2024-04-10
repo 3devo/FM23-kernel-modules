@@ -1843,6 +1843,7 @@ static int isi_cap_probe(struct platform_device *pdev)
 	snprintf(sd->name, sizeof(sd->name), "mxc_isi.%d", isi_cap->id);
 
 	sd->entity.function = MEDIA_ENT_F_PROC_VIDEO_PIXEL_FORMATTER;
+	sd->flags |= V4L2_SUBDEV_FL_HAS_DEVNODE;
 
 	/* ISI Sink pads */
 	isi_cap->sd_pads[MXC_ISI_SD_PAD_SINK_MIPI0_VC0].flags = MEDIA_PAD_FL_SINK;
