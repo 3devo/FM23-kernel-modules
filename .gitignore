@@ -1,0 +1,12 @@
+# Out-of-tree module building generates build products in the source
+# dir. Ideally these would be generated elsewhere, but for now just
+# ignore them here.
+*.o
+*.o.d
+*.mod.c
+*.cmd
+*.ko
+*.mod
+modules.order
+Module.symvers
+
