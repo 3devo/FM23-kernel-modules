@@ -245,11 +245,11 @@ static const struct imx708_reg mode_4608x2592_regs[] = {
 	{0x0343, 0x20},
 	{0x0340, 0x0A},
 	{0x0341, 0x59},
-	{0x0344, 0x00},
+	{0x0344, 0x01},
 	{0x0345, 0x00},
 	{0x0346, 0x00},
 	{0x0347, 0x00},
-	{0x0348, 0x11},
+	{0x0348, 0x10},
 	{0x0349, 0xFF},
 	{0x034A, 0X0A},
 	{0x034B, 0x1F},
@@ -270,11 +270,11 @@ static const struct imx708_reg mode_4608x2592_regs[] = {
 	{0x0409, 0x00},
 	{0x040A, 0x00},
 	{0x040B, 0x00},
-	{0x040C, 0x12},
+	{0x040C, 0x10},
 	{0x040D, 0x00},
 	{0x040E, 0x0A},
 	{0x040F, 0x20},
-	{0x034C, 0x12},
+	{0x034C, 0x10},
 	{0x034D, 0x00},
 	{0x034E, 0x0A},
 	{0x034F, 0x20},
@@ -631,14 +631,14 @@ static const struct imx708_reg mode_hdr_regs[] = {
 /* Mode configs. Keep separate lists for when HDR is enabled or not. */
 static const struct imx708_mode supported_modes_10bit_no_hdr[] = {
 	{
-		/* Full resolution. */
-		.width = 4608,
+		/* Full resolution - modified to do centered crop to 4096 pixels to facilitate the ISI limit of 4096 pixels. */
+		.width = 4096,
 		.height = 2592,
 		.line_length_pix = 0x3d20,
 		.crop = {
-			.left = IMX708_PIXEL_ARRAY_LEFT,
+			.left = IMX708_PIXEL_ARRAY_LEFT + (4608-4096)/2,
 			.top = IMX708_PIXEL_ARRAY_TOP,
-			.width = 4608,
+			.width = 4096,
 			.height = 2592,
 		},
 		.vblank_min = 58,
