@@ -696,6 +696,18 @@ static int ar1335_set_fmt(struct v4l2_subdev *sd,
 	sensor->format = fmt->format;
 	mutex_unlock(&sensor->lock);
 
+	ret = ar1335_set_gain(sensor, 10);
+	if (ret < 0) {
+		dev_err(&client->dev,"%s Failed to write gain ret=%d\n",
+			__func__,ret);
+	}
+
+	ret = ar1335_set_exp(sensor, 3 * 100 * (1 << SENSOR_FIX_FRACBITS));
+	if (ret < 0) {
+		dev_err(&client->dev,"%s Failed to write gain ret=%d\n",
+			__func__,ret);
+	}
+
 	return 0;
 }
 
