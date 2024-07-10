@@ -98,8 +98,8 @@ struct mxc_isi_fmt mxc_isi_out_formats[] = {
 		.align		= 2,
 		.mbus_code	= MEDIA_BUS_FMT_RGB888_1X24,
 	}, {
-		.name		= "SRGGB10",
-		.fourcc		= V4L2_PIX_FMT_SRGGB10,
+		.name		= "SGRBG10",
+		.fourcc		= V4L2_PIX_FMT_SGRBG10,
 		.depth		= { 16 },
 		.color		= MXC_ISI_OUT_FMT_RAW10,
 		.memplanes	= 1,
