@@ -32,6 +32,7 @@
 #include <linux/property.h>
 #include <linux/slab.h>
 #include <linux/of.h>
+#include <linux/gpio/consumer.h>
 
 /* LED select registers determine the source that drives LED outputs */
 #define PCA963X_LED_OFF		0x0	/* LED driver off */
@@ -109,6 +110,7 @@ struct pca963x {
 	struct pca963x_chipdef *chipdef;
 	struct mutex mutex;
 	struct i2c_client *client;
+	struct gpio_desc *enable_gpio;
 	unsigned long leds_on;
 	struct pca963x_led leds[];
 };
@@ -404,6 +406,9 @@ static int pca963x_probe(struct i2c_client *client,
 
 	/* Disable LED all-call address, and power down initially */
 	i2c_smbus_write_byte_data(client, PCA963X_MODE1, BIT(4));
+
+	/* Activate OE after all registers are setup */
+	chip->enable_gpio = devm_gpiod_get_optional(dev, "enable", GPIOD_OUT_HIGH);
 
 	return pca963x_register_leds(client, chip);
 }
